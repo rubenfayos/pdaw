@@ -16,15 +16,23 @@
 }
 
 form {
-  @apply flex flex-col gap-y-2;
+  @apply flex flex-col gap-y-4;
 }
 
 form > div > button {
   @apply mt-4;
 }
 
+input {
+  @apply w-full border rounded p-1 text-sm;
+}
+
 @layer components {
   .primary-button {
     @apply bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none active:bg-blue-700;
+  }
+
+  .red-button {
+    @apply bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 focus:outline-none active:bg-red-700;
   }
 }

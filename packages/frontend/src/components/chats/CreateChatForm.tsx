@@ -8,20 +8,22 @@ type Props = {
 
 interface CreateChatInput {
   email: string;
+  name: string;
 }
 
 function CreateChatForm(props: Props) {
   const [formData, setFormData] = createSignal<CreateChatInput>({
     email: "",
+    name: "",
   });
 
   const [formErrors, setFormErrors] = createSignal<CreateChatInput>({
     email: "",
+    name: "",
   });
 
   const handleChange = (e: Event) => {
     const target = e.target as HTMLInputElement;
-    console.log({ ...formData(), [target.name]: target.value });
     setFormData({ ...formData(), [target.name]: target.value });
   };
 
@@ -41,7 +43,7 @@ function CreateChatForm(props: Props) {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label for="email">Correo electrónico</label>
+        <label for="email">Correo electrónico del usuario</label>
         <input
           class="w-full border rounded p-1 text-sm"
           type="email"
@@ -51,6 +53,18 @@ function CreateChatForm(props: Props) {
           value={formData().email}
         />
         <p class="text-red-500 text-sm">{formErrors()?.email}</p>
+      </div>
+      <div>
+        <label for="name">Nombre del chat</label>
+        <input
+          class="w-full border rounded p-1 text-sm"
+          type="text"
+          id="name"
+          name="name"
+          onChange={handleChange}
+          value={formData().name}
+        />
+        <p class="text-red-500 text-sm">{formErrors()?.name}</p>
       </div>
       <div>
         <button class="primary-button">Crear chat</button>

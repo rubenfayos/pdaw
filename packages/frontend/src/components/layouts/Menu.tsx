@@ -1,6 +1,6 @@
 import { Match, Switch, createSignal } from "solid-js";
-import LogoutModal from "../Modals/LogoutModal";
-import CreateChatModal from "../Modals/CreateChatModal";
+import LogoutModal from "../modals/LogoutModal";
+import CreateChatModal from "../modals/CreateChatModal";
 
 function Menu() {
   const [isOpen, setIsOpen] = createSignal(false);
@@ -49,6 +49,14 @@ function Menu() {
                   class="py-3 px-2 hover:bg-gray-100 hover:rounded-md"
                 >
                   <span class="text-black rounded">Cerrar sesión</span>
+                </li>
+                <li
+                  role="button"
+                  class="py-3 px-2 hover:bg-gray-100 hover:rounded-md"
+                >
+                  <a class="text-black rounded" href="/user">
+                    Usuario
+                  </a>
                 </li>
               </ul>
             </div>
